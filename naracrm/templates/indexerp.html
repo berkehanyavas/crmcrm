@@ -1,0 +1,145 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+{% for lead in team %}
+
+{% if lead != None %}
+<button>{{lead}} ekibine gorev ver</button>
+{% endif %}
+{% endfor %}
+
+{% if team != None %}
+<button>Diger ekiplere gorev ver</button>
+{% endif %}
+
+<div class='row'>
+    <div class='col-sm'>
+        <div align='center'><h4>Beklemede</h4></div>
+        {% for gorev in gorevler %}
+            {% if gorev.status == 'Beklemede' %}
+                <div class='card bg-light mb-3' style="max-width: 18rem;">
+                    <div class='card-header'>
+                        <a href="/erp/gorev/{{gorev.id}}" style='color:black'>{{gorev.title}}</a>
+                    </div>
+                    <div class='card-body'>
+                        <h6><a href="/erp/gorev/{{gorev.id}}" style='color:black'>{{gorev.aciklama}}</a></h6>
+                        {% if gorev.aciliyet != 'primary' %}
+                            <br>
+                            <div class='alert alert-{{gorev.aciliyet}}' style='width:69px; font-size:12px;'>{{gorev.get_aciliyet_display}}</div>
+                        {% endif %}
+                    </div>
+                </div>
+                <br>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class='col-sm'>
+        <div align='center'><h4>Baslamadi</h4></div>
+        {% for gorev in gorevler %}
+            {% if gorev.status == 'Baslamadi' %}
+            <div class='card text-white bg-secondary mb-3' style="max-width: 18rem;">
+                <div class='card-header'>
+                    <a href="/erp/gorev/{{gorev.id}}" style='color:white'>{{gorev.title}}</a>
+                </div>
+                <div class='card-body'>
+                    <h6><a href="/erp/gorev/{{gorev.id}}" style='color:white'>{{gorev.aciklama}}</a></h6>
+                    {% if gorev.aciliyet != 'primary' %}
+                        <br>
+                        <div class='alert alert-{{gorev.aciliyet}}' style='width:69px; font-size:12px;'>{{gorev.get_aciliyet_display}}</div>
+                    {% endif %}
+                </div>
+            </div>
+            <br>
+            {% endif %}
+        {% endfor %}
+    </div>
+    
+    <div class='col-sm'>
+        <div align='center'><h4>Devam Ediyor</h4></div>
+        {% for gorev in gorevler %}
+            {% if gorev.status == 'Devam Ediyor' %}
+            <div class='card text-white bg-primary mb-3' style="max-width: 18rem;">
+                <div class='card-header'>
+                    <a href="/erp/gorev/{{gorev.id}}" style='color:white'>{{gorev.title}}</a>
+                </div>
+                <div class='card-body'>
+                    <h6><a href="/erp/gorev/{{gorev.id}}" style='color:white'>{{gorev.aciklama}}</a></h6>
+                    {% if gorev.aciliyet != 'primary' %}
+                        <br>
+                        <div class='alert alert-{{gorev.aciliyet}}' style='width:69px; font-size:12px;'>{{gorev.get_aciliyet_display}}</div>
+                    {% endif %}
+                </div>
+            </div>
+            <br>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class='col-sm'>
+        <div align='center'><h4>Tamamlandi</h4></div>
+        {% for gorev in gorevler %}
+            {% if gorev.status == 'Tamamlandi' %}
+            <div class='card text-white bg-success mb-3' style="max-width: 18rem;">
+                <div class='card-header'>
+                    <a href="/erp/gorev/{{gorev.id}}" style='color:white'>{{gorev.title}}</a>
+                </div>
+                <div class='card-body'>
+                    <h6><a href="/erp/gorev/{{gorev.id}}" style='color:white'>{{gorev.aciklama}}</a></h6>
+                    {% if gorev.aciliyet != 'primary' %}
+                        <br>
+                        <div class='alert alert-{{gorev.aciliyet}}' style='width:69px; font-size:12px;'>{{gorev.get_aciliyet_display}}</div>
+                    {% endif %}
+                </div>
+            </div>
+            <br>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class='col-sm'>
+        <div align='center'><h4>Suresi Gecti</h4></div>
+        {% for gorev in gorevler %}
+            {% if gorev.status == 'Suresi Gecti' %}
+            <div class='card text-white bg-danger mb-3' style="max-width: 18rem;">
+                <div class='card-header'>
+                    <a href="/erp/gorev/{{gorev.id}}" style='color:white'>{{gorev.title}}</a>
+                </div>
+                <div class='card-body'>
+                    <h6><a href="/erp/gorev/{{gorev.id}}" style='color:white'>{{gorev.aciklama}}</a></h6>
+                    {% if gorev.aciliyet != 'primary' %}
+                        <br>
+                        <div class='alert alert-{{gorev.aciliyet}}' style='width:69px; font-size:12px;'>{{gorev.get_aciliyet_display}}</div>
+                    {% endif %}
+                </div>
+            </div>
+            <br>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class='col-sm'>
+        <div align='center'><h4>Ek Sure Talep Ediliyor</h4></div>
+        {% for gorev in gorevler %}
+            {% if gorev.status == 'Ek Sure Talep Ediliyor' %}
+            <div class='card text-white bg-warning mb-3' style="max-width: 18rem;">
+                <div class='card-header'>
+                    <a href="/erp/gorev/{{gorev.id}}" style='color:white'>{{gorev.title}}</a>
+                </div>
+                <div class='card-body'>
+                    <h6><a href="/erp/gorev/{{gorev.id}}" style='color:white'>{{gorev.aciklama}}</a></h6>
+                    {% if gorev.aciliyet != 'primary' %}
+                        <br>
+                        <div class='alert alert-{{gorev.aciliyet}}' style='width:69px; font-size:12px;'>{{gorev.get_aciliyet_display}}</div>
+                    {% endif %}
+                </div>
+            </div>
+            <br>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+
+</div>
+
+{% endblock body %}

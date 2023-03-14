@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+{% for takim in takimlar %}
+
+{% for id in takim %}
+{% if id == request.user.id %}
+<p>takim lideri bu</p>
+{% else %}
+{% endif %}
+
+{% endfor %}
+
+{% endfor %}
+
+{% endblock body %}

@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class='container'>
+    <div class='jumbotron'>
+        <h3>{{gorev.title}}</h3>
+        <p>{{gorev.aciklama}}</p>
+        <b>{{gorev.status}}</b>
+        <p>{{gorev.atanan}}</p>
+        <p>Başlangıç tarihi: {{gorev.baslangic}} - İstenilen bitiş tarihi: {{gorev.bitis}}</p>
+        <p>{{gorev.completed}}</p>
+        <p>{{gorev.completed_at}}</p>
+        <p>{{gorev.created_at}}</p>
+
+        <h1>{{gorev.get_aciliyet_display}}</h1>
+        <h1>{{gorev.team}}</h1>
+
+    </div>
+</div>
+{% endblock body %}
